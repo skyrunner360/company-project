@@ -1,6 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
-import ReactApexChart from "react-apexcharts";
+import dynamic from "next/dynamic";
+
+const ReactApexChart = dynamic(() => import("react-apexcharts"), {
+  ssr: false,
+});
 
 export default function Home() {
   const [chartData, setChartData] = useState([]);
@@ -32,7 +36,7 @@ export default function Home() {
       <div className="text-center">
         <h2 className="text-xl font-bold">Spearmint Technologies Assignment</h2>
       </div>
-      {chartData?.length > 0 && (
+      {chartData?.length > 0 && typeof window !== "undefined" && (
         <ReactApexChart
           type="scatter"
           series={[{ name: "Data Point", data: chartData }]}
