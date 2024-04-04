@@ -17,7 +17,7 @@ export default function Home() {
 
     const YArr = YData?.slice(0, 50);
     setChartData(
-      YArr.map((y, i) => [
+      YArr.map((y: any, i: number) => [
         parseInt(xArr[i].RandomNumber),
         parseInt(y.RandomNumber),
       ])
