@@ -35,7 +35,7 @@ export default function Home() {
       {chartData?.length > 0 && (
         <ReactApexChart
           type="scatter"
-          series={[{ name: "Sample", data: chartData }]}
+          series={[{ name: "Data Point", data: chartData }]}
           options={{
             chart: {
               height: 1000,
